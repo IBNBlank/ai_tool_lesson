@@ -63,7 +63,7 @@ class MnistExperiment(object):
         def inner(*args, **kwargs):
             label_predict, label_test = func(*args, **kwargs)
             model_confusion_matrix = confusion_matrix(label_test, label_predict)
-            fig, ax = plt.subplot(figsize=(10, 10))
+            fig, ax = plt.subplots(figsize=(10, 10))
 
             sn.heatmap(model_confusion_matrix, annot=True, ax=ax, fmt='g', vmin=0)
             ax.set_ylabel("true label")

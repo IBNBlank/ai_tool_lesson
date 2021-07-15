@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# My files
+numpy/picture/*
+sklearn/data/*
+pytorch/data/*
+pytorch/model/*

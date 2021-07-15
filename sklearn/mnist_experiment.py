@@ -124,7 +124,7 @@ class MnistExperiment(object):
 
 # 读取数据集
 def get_dataset():
-    mnist = pd.read_csv('./mnist-train.csv.zip')
+    mnist = pd.read_csv('./data/mnist-train.csv.zip')
     label = mnist['label'].values.flatten()
     data = mnist.drop(['label'], axis=1).values
     return data, label

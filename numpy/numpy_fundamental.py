@@ -10,15 +10,17 @@ import numpy as np
 
 
 def main():
-    # 初始化
+    # 创建矩阵&向量
     a = np.random.rand(2, 2)
     b = np.random.rand(2, 2)
 
     # 矩阵乘法
-    np.dot(a, b)
+    result = np.dot(a, b)
+    print(result)
 
     # 对应位置元素相乘
-    np.multiply(a, b)
+    result = np.multiply(a, b)
+    print(result)
 
 
 if __name__ == '__main__':

@@ -16,26 +16,21 @@ class NumpyBackPropagation(object):
         # 梯度下降参数
         self.__learning_rate = 0.01
 
+    def forward_propagation(self, input_data):
+        output_data = self.__weight.dot(input_data)
+        return output_data
+
     def back_propagation(self, input_data, label):
         # 误差计算
-        predict = self.__forward_propagation(input_data)
+        predict = self.forward_propagation(input_data)
         error = predict - label
-        print(f"origin_error:{error}")
 
         # 梯度计算
+        # Mean-Squared Loss
         gradient = 2 * input_data.T * error
 
         # 参数计算
         self.__weight = self.__weight - self.__learning_rate * gradient
-
-        # 检查新误差
-        predict = self.__forward_propagation(input_data)
-        error = predict - label
-        print(f"new_error:{error}")
-
-    def __forward_propagation(self, input_data):
-        output_data = self.__weight.dot(input_data)
-        return output_data
 
     def __activatino_function(self, input_data):
         output_data = input_data
@@ -54,9 +49,17 @@ def main():
     # 模型初始化
     numpy_back_propagation = NumpyBackPropagation()
 
+    # 前向传播
+    print(
+        f"origin_result:{numpy_back_propagation.forward_propagation(input_data)}"
+    )
+
     # 反向传播
     numpy_back_propagation.back_propagation(input_data, label)
-    numpy_back_propagation.back_propagation(input_data, label)
+
+    # 前向传播
+    print(
+        f"new_result:{numpy_back_propagation.forward_propagation(input_data)}")
 
 
 if __name__ == '__main__':
